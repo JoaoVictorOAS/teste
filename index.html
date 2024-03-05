@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="fibonacci"> 
+
+        <h2> Digite um número </h2>
+        <h4> Iremos descobrir se ele pertence a sequência de fibonacci</h4>
+        <input type="number" id="numero">
+        <button onclick="descobrir()"> descobrir </button>
+        <div id="resultadofibonacci"></div>
+
+    </div>
+
+    <div id="inversao">
+
+        <h2> Digite algo </h2>
+        <h4> Iremos o inverter</h4>
+        <input type="text" id="string">
+        <button onclick="inverter()"> inverter</button>
+        <div id="resultadoinversao"></div>
+    </div>
+
+        <script>
+
+            //PARA FINS DE SIMPLICIDADE IREI DEIXAR EM UM UNICO DOCUMENTO/// 
+
+            function inverter(){
+                let string_coletada = (document.getElementById("string").value);
+
+                // INVERSÃO DA STRING 
+                let string_saida = "";
+                for (var i = string_coletada.length - 1; i >= 0; i--) {
+                string_saida += string_coletada[i];
+                }
+
+                // ADICIONA VALOR AO BODY // 
+                let div = document.getElementById("resultadoinversao");
+                div.innerHTML = string_saida;               
+
+            }
+
+            function descobrir() {
+                let div = document.getElementById("resultadofibonacci");
+                let numero_coletado = (document.getElementById("numero").value);
+                let fibonacci = [0,1];
+
+                // SOMA OS ULTIMOS DOIS NUMEROS DA VARIAVEL E A INCLEMENTA
+                while(numero_coletado > fibonacci[fibonacci.length - 1]){
+                    fibonacci.push(fibonacci[fibonacci.length - 2] + fibonacci[fibonacci.length - 1]);
+                }
+
+                if(numero_coletado == fibonacci[fibonacci.length - 1]){ 
+                    div.innerHTML = "pertence";
+                }
+                else{ 
+                    div.innerHTML = " nao pertence";
+                }    
+
+            }
+        </script>
+</body>
+</html>
